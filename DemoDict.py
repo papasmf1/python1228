@@ -1,5 +1,4 @@
 # DemoDict.py 
-
 color = {"apple":"red","kiwi":"green"}
 print( len(color) )
 print( color["apple"] )
@@ -21,6 +20,4 @@ device = {"아이폰":5, "아이패드":10, "윈도우":20}
 
 for item in device.items():
     print(item)
-
-    
 
