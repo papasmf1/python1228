@@ -74,3 +74,17 @@ def union(*ar):
 print( union("HAM","EGG") )
 print( union("HAM","EGG","SPAM") )
 
+#객체는 참조를 통해서 입출력(리스트는 가변형) 
+wordlist = ["J","A","M"]
+
+#함수를 정의 
+#복사본을 수정하도록 변경
+def change(x):
+    #x1 지역변수에 깊은 복사(Deep copy)
+    x1 = x[:]
+    x1[0] = "H"
+    print("함수내부:", x1)
+
+#호출(Pass By Reference, Call By Reference) 
+change(wordlist)
+print("함수호출후:", wordlist)
