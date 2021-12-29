@@ -32,3 +32,43 @@ for i in lst:
     if i % 2 == 0:
         continue
     print("Item:{0}".format(i))
+
+print("---짝수면 출력---")
+for i in lst:
+    if i % 2 == 1:
+        continue
+    print("Item:{0}".format(i))
+
+#기존 언어의 for루프 
+for i in range(5):
+    print(i)
+
+#수열함수
+result = list(range(10))
+print(result)
+years = list(range(2000,2022))
+print(years)
+result2 = list(range(10,0,-1))
+print(result2)
+
+#리스트 컴프리헨션(리스트 함축, 압축)
+lst = list(range(1,11))
+result = [i**2 for i in lst if i > 5]
+print(result)
+
+d = {100:"apple", 200:"banana", 300:"kiwi"}
+print([v.upper() for v in d.values()])
+
+lst = [10,25,30]
+iterL = filter(None, lst)
+for item in iterL:
+    print(item)
+
+print("---필터링---")
+#함수를 정의
+def getBiggerThan20(i):
+    return i>20
+
+iterL = filter(getBiggerThan20, lst)
+for item in iterL:
+    print(item)
