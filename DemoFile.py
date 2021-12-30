@@ -18,19 +18,30 @@ f.close()
 print( f.closed )
 
 #파일읽기
-f = open("c:\\work\\demo.txt", "rt")
+f = open("c:\\work\\demo.txt", "rt", encoding="utf-8")
 print("---read()---")
 print( f.read() )
 print( f.tell() )
-#리셋하는 코드 
+# #리셋하는 코드 
 f.seek(0)
 print("---readlines()---")
 result = f.readlines()
 print( result )
 f.seek(0)
 print("---readline()---")
-print( f.readline() ) 
-print( f.readline() ) 
+print( f.readline(), end="" ) 
+print( f.readline(), end="" ) 
+f.close() 
+
+#기존 파일에 첨부 
+f = open("c:\\work\\demo.txt", "a+", encoding="utf-8")
+#f = open("c:\\work\\demo.txt", "wt", encoding="utf-8")
+f.write("네번째 데이터\n")
+f.close() 
+
+f = open("c:\\work\\demo.txt", encoding="utf-8")
+print( f.read() )
+
 
 
 
