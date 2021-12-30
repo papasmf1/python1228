@@ -8,9 +8,9 @@ class Person:
         #내부의 멤버 변수 초기화
         self.name = "default name"
         Person.num_person += 1 
-    #인스턴스 메서드 
+    #인스턴스 메서드:일종의 약속(서식문자) 
     def print(self):
-        print("My name is {0}".format(self.name))
+        print("My name is {0}".format(self.name) )
 
 #인스턴스(복사본)생성
 p1 = Person()
