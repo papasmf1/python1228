@@ -9,9 +9,9 @@ import re
 hdr = {'User-agent':'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3 like Mac OS X) AppleWebKit/603.1.23 (KHTML, like Gecko) Version/10.0 Mobile/14E5239e Safari/602.1'}
 
 #웹사이트에서 페이징처리(0, 1... )
-for n in range(0,10):
-        #클리앙의 중고장터 주소 
-        data ='https://www.clien.net/service/board/sold?&od=T31&po=' + str(n)
+for n in range(1,11):
+        #오늘의 유머
+        data ='http://www.todayhumor.co.kr/board/list.php?table=bestofbest&page=' + str(n)
         print(data)
         #웹브라우져 헤더 추가 
         req = urllib.request.Request(data, \
@@ -21,17 +21,17 @@ for n in range(0,10):
         page = data.decode('utf-8', 'ignore')
         soup = BeautifulSoup(page, 'html.parser')
 
-        # <span class="subject_fixed" data-role="list-title-text">
-	#       맥북프로 2021, 16인치, Pro, 32, 512
-	# </span>
-        # <span>태그에서 data-role속성이 이렇게 된 것만 필터링 
-        list = soup.find_all('span', attrs={'data-role':'list-title-text'})
+        # <td class="subject">
+        #     <a href="/board/view.php?table=bestofbest&no=449539&s_no=449539&page=1" target="_top">
+        #     43년 동안 키운 크리스마스 트리</a>
+        list = soup.find_all('td', attrs={'class':'subject'})
 
         for item in list:
                 try:
-                        title = item.text 
-                        if (re.search('애플', title)):
-                                print(title.strip())
+                        title = item.find("a").text 
+                        print(title.strip())
+                        # if (re.search('애플', title)):
+                        #         print(title.strip())
                 except:
                         pass
         
