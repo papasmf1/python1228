@@ -29,4 +29,10 @@ telChecker = re.compile("(\d{2,3})-(\d{3,4})-(\d{4})")
 print(bool(telChecker.match("02-3429-5000")))
 print(bool(telChecker.match("02-가3429-5000")))
 print(bool(telChecker.match("0211-가3429-5000")))
+m = telChecker.match("031-4500-6000")
+print(m.group(1))
+print(m.group(2))
+print(m.groups())
+
+
 
