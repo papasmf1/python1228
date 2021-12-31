@@ -12,6 +12,7 @@ data = urllib.request.urlopen("http://comic.naver.com/webtoon/list.nhn?titleId=2
 soup = BeautifulSoup(data, "html.parser")                        
 cartoons = soup.find_all("td", class_="title")
 print("찾은 갯수:{0}".format(len(cartoons)))
+#0번을 슬라이싱 
 title = cartoons[0].find("a").text 
 link = cartoons[0].find("a")["href"]
 print(title)
